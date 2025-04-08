@@ -20,12 +20,28 @@ This is the main object used in Pure Data. It manages the graph structure, inclu
 
 Each line in the ``.txt`` file represents a node in the graph. The format is:
 
-<node_heuristics> -> <connected_node_1_heuristics> <connected_node_2_heuristics> ...
+``<node_heuristics> -> <connected_node_1_heuristics> <connected_node_2_heuristics> ...``
 
 Heuristic values are space-separated, and ``->`` indicates the direction to connected nodes.
 
 ### 🔢 Sample .txt Entry
 ``0.00123164 0.16744 0.560182 -> 0.0149622 0.44435 0.5078 0.065612 0.428811 0.677328``
+
+
+```Node 0: (0.0012, 0.1674, 0.5601)
+   |
+   |--> Node 1: (0.0150, 0.4443, 0.5078)
+   |      |
+   |      |--> Node 2: (0.0006, 0.4465, 0.1239)
+   |             |
+   |             |--> Node 3: (0.1123, 0.2839, 0.2780)
+   |                    |
+   |                    |--> Node 4: (0.0002, 0.4660, 0.0317)
+   |                           |
+   |                           |--> Node 5: (0.0010, 0.6099, 0.3229)
+   |                                  |
+   |                                  |--> Node 6: (0.3090, 0.4109, 0.3233)
+```
 
 
 
