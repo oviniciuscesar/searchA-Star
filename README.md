@@ -37,6 +37,7 @@ Node A: (0.00123164 0.16744 0.560182)
    |--> Node C: (0.065612 0.428811 0.677328)
 
 ```
+
 This shows how a single node can lead to multiple destinations, forming a directed ``graph`` structure that the `A*` algorithm will traverse.
 The search process will evaluate different paths in this graph, based on the weights and the configured search mode (e.g., ``lowest cost`` or ``highest cost``), to find the optimal route from the current node to a target.
 
