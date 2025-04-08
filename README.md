@@ -63,7 +63,7 @@ The search process will evaluate different paths in this graph, based on the wei
 
 # Build
 > [!NOTE]
-`searchA` uses `[`pd.cmake`](https://github.com/pure-data/pd.cmake). To build the external on Linux, Mac, and Windows (using Mingw64):
+`searchA` uses `[pd.cmake](https://github.com/pure-data/pd.cmake). To build the external on Linux, Mac, and Windows (using Mingw64):
 
 1. `git clone https://github.com/oviniciuscesar/searchA-Star/ --recursive`;
 2. `cd cnn2d`;
