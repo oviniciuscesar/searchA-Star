@@ -45,16 +45,16 @@ The search process will evaluate different paths in this graph, based on the wei
 ### 🔧 Commands
 
 - **`read <filename>`**  
-  Loads a graph from a `.txt` file. Each line defines a node, its heuristic values, and its outgoing connections. This initializes the internal graph structure.
+  Loads a graph from a `.txt` file. Each line defines a ``node``, its heuristic values, and its outgoing connections. This initializes the internal ``graph`` structure.
 
 - **List input**  
-  Triggers the `A*` search algorithm using the current graph, weighting, and search mode. The resulting path is output through the object's outlets. This is done by sending a list of features (heuristics) to the object.
+  Triggers the `A*` search algorithm using the current ``graph``, ``weighting``, and ``search mode``. The resulting path is output through the object's outlets. This is done by sending a list of features (``heuristics``) to the object.
 
 - **`restart`**  
-  Resets the internal search state. Clears all previously visited nodes and accumulated costs, allowing a new search to be performed without reloading the graph.
+  Resets the internal ``search state``. Clears all previously visited ``nodes`` and accumulated costs, allowing a new search to be performed without reloading the ``graph``.
 
 - **`mode < < | >`**  
-  Sets the search mode. Use `<` to search for the lowest-cost path or `>` to search for the highest-cost path. This can adapt the search logic for analytical or creative use cases.
+  Sets the ``search mode``. Use `<` to search for the ``lowest-cost`` path or `>` to search for the ``highest-cost`` path. This can adapt the search logic for analytical or creative use cases.
 
 - **`weighting <w1> <w2> <w3>`**  
   Sets the relative importance (``weights``) of the three ``heuristic`` dimensions used by the algorithm. This allows fine-tuning of how each attribute influences the pathfinding.
