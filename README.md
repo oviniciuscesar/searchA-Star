@@ -26,7 +26,8 @@ Heuristic values are space-separated, and ``->`` indicates the direction to conn
 ### 🔢 Sample .txt Entry
 ``0.00123164 0.16744 0.560182 -> 0.0149622 0.44435 0.5078 -> 0.065612 0.428811 0.677328``
 
-# Node A is connected to Node B and C
+### 🖼️ Visual Representation
+``node`` A is connected to ``node`` B and C:
 
 ```
 Node A: (0.00123164 0.16744 0.560182)
@@ -36,7 +37,7 @@ Node A: (0.00123164 0.16744 0.560182)
    |--> Node C: (0.065612 0.428811 0.677328)
 
 ```
-
+This shows how a single node can lead to multiple destinations, forming a directed ``graph`` structure that the `A*` algorithm will traverse.
 The search process will evaluate different paths in this graph, based on the weights and the configured search mode (e.g., ``lowest cost`` or ``highest cost``), to find the optimal route from the current node to a target.
 
 
@@ -62,7 +63,7 @@ The search process will evaluate different paths in this graph, based on the wei
 
 # Build
 > [!NOTE]
-`searchA` uses `pd.build`. To build the external on Linux, Mac, and Windows (using Mingw64):
+`searchA` uses `[`pd.cmake`](https://github.com/pure-data/pd.cmake). To build the external on Linux, Mac, and Windows (using Mingw64):
 
 1. `git clone https://github.com/oviniciuscesar/searchA-Star/ --recursive`;
 2. `cd cnn2d`;
