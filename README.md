@@ -54,7 +54,7 @@ The search process will evaluate different paths in this graph, based on the wei
 - **`restart`**  
   Resets the internal ``search state``. Clears all previously visited ``nodes`` and accumulated costs, allowing a new search to be performed without reloading the ``graph``.
 
-- **`mode < < | >`**  
+- **`mode < | >`**  
   Sets the ``search mode``. Use `<` to search for the ``lowest-cost`` path or `>` to search for the ``highest-cost`` path. This can adapt the search logic for analytical or creative use cases.
 
 - **`weighting <w1> <w2> <w3>`**  
