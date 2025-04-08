@@ -1,19 +1,17 @@
 # SearchA
-Work-in-progress vanilla implementation of  ``search A star`` algorithm in `C` as a ``Pure Data`` object.
-The ``searchA`` object implements a heuristic search algorithm based on `A* algorithm` and it allows reading a graph structure loaded from text files, configuring ``heuristics`` and ``weights``, and executing optimized searches according to different modes and criteria.
+A work-in-progress vanilla implementation of the ``A*`` search algorithm in C, designed as a ``Pure Data`` external object.
+The ``searchA`` object implements a ``heuristic search algorithm`` based on the ``A*`` algorithm. It enables users to load graph structures from ``.txt`` files, configure custom ``heuristics`` and ``weights``, and perform optimized searches according to different modes and criteria.
 
-The project aims to integrate machine learning and artificial intelligence algorithms into the `Pure Data` environment and to provide configurable functionalities (with no external machine learning dependencies) designed for technical studies and real-time composition applications.
-
-
+This project aims to bring artificial intelligence and heuristic search functionalities into the ``Pure Data`` environment. It provides fully configurable functionalities - with no external machine learning dependencies — designed for both technical research and real-time composition applications.
 
 # Graph Structures Overview
 The graph that can be loaded by the ``searchA`` follows the following structure:
 
 ``Edge:``
-Represents a connection between two nodes in the graph. Each edge stores a set of heuristic values (e.g., ``brightness``, ``roughness``, ``harmonicity``, or any other sound/musical attributes and data) and a reference to the destination node it connects to. These values are used to calculate the cost or priority of moving from one node to another during the search.
+Represents a connection between two nodes in the graph. Each ``edge`` stores a set of heuristic values (e.g., ``brightness``, ``roughness``, ``harmonicity``, or any other sound/musical attributes and data) and a reference to the destination node it connects to. These values are used to calculate the cost or priority of moving from one node to another during the search.
 
 ``Node:``
-Represents a point in the graph, typically corresponding to a musical or sound-related event. Each node contains its own set of heuristic values, a unique index or identifier, and a list of outgoing edges connecting it to other nodes. Nodes serve as the core units visited and evaluated during the search process.
+Represents a point in the graph, typically corresponding to a musical or sound-related event. Each ``node`` contains its own set of heuristic values, a unique index or identifier, and a list of outgoing edges connecting it to other nodes. Nodes serve as the core units visited and evaluated during the search process.
 
 The object manages the graph structure, including all nodes and their connections, keeps track of the `search state`, stores ``heuristic weights`` (to prioritize certain attributes), and controls the ``input/output`` behavior via outlets. It’s responsible for executing the ``A*`` search algorithm and returning the best path according to the configured ``mode`` and ``weights``.
 
@@ -45,20 +43,21 @@ The search process will evaluate different paths in this graph, based on the wei
 
 ### 🔧 Commands
 
-``read <filename>``
-Loads a graph from a ``.txt`` file. Each line in the file represents a node, its heuristic values, and its outgoing connections. This command initializes the internal graph structure used by the search.
+- **`read <filename>`**  
+  Loads a graph from a `.txt` file. Each line defines a node, its heuristic values, and its outgoing connections. This initializes the internal graph structure.
 
-``List input`` 
-Triggers the ``A*`` search algorithm using the current ``graph``, ``weighting``, and ``search mode``. The resulting path is output through the outlets. This is done by sending a list of features (heuristic).
+- **List input**  
+  Triggers the `A*` search algorithm using the current graph, weighting, and search mode. The resulting path is output through the object's outlets. This is done by sending a list of features (heuristics) to the object.
 
-``restart``
-Resets the internal state of the search. This clears all previously visited nodes and accumulated costs, allowing the user to perform a new search without reloading the ``graph``.
+- **`restart`**  
+  Resets the internal search state. Clears all previously visited nodes and accumulated costs, allowing a new search to be performed without reloading the graph.
 
-``mode``
-Sets the ``search mode``. Use ``<`` to search for the ``lowest cost`` path, or ``>`` to search for the ``highest cost path``. This allows the algorithm to be adapted for different creative or analytical goals.
+- **`mode < < | >`**  
+  Sets the search mode. Use `<` to search for the lowest-cost path or `>` to search for the highest-cost path. This can adapt the search logic for analytical or creative use cases.
 
-``weighting <w1> <w2> <w3>``
-Sets the relative importance (``weights``) of the three ``heuristic dimensions`` used by the ``A*`` algorithm. This lets you guide the search behavior based on the criteria you define.
+- **`weighting <w1> <w2> <w3>`**  
+  Sets the relative importance (``weights``) of the three ``heuristic`` dimensions used by the algorithm. This allows fine-tuning of how each attribute influences the pathfinding.
+
 
 
 # Build
