@@ -43,7 +43,7 @@ The search process will evaluate different paths in this graph, based on the wei
 
 
 
-### 🔧 Commands
+### 🔧 Functionalities
 
 - **`read <filename>`**  
   Loads a graph from a `.txt` file. Each line defines a ``node``, its heuristic values, and its outgoing connections. This initializes the internal ``graph`` structure.
