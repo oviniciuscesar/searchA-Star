@@ -1,5 +1,5 @@
 # SearchA
-Work-in-progress vanilla implementation of  ``search A star`` algorithm in `C` as ``Pure Data`` object.
+Work-in-progress vanilla implementation of  ``search A star`` algorithm in `C` as a ``Pure Data`` object.
 The ``searchA`` object implements a heuristic search algorithm based on `A* algorithm` and it allows reading a graph structure loaded from text files, configuring heuristics and weights, and executing optimized searches according to different modes and criteria.
 
 The project aims to integrate machine learning and artificial intelligence algorithms into the `Pure Data` environment and to provide configurable functionalities (with no external machine learning dependencies) designed for technical studies and real-time composition applications.
