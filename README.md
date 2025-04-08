@@ -1,4 +1,4 @@
-# searchA-Star
+# SearchA
 Work-in-progress vanilla implementation of  ``search A star`` algorithm in `C` as ``Pure Data`` object.
 The ``searchA`` object implements a heuristic search algorithm based on `A* algorithm` and it allows reading a graph structure loaded from text files, configuring heuristics and weights, and executing optimized searches according to different modes and criteria.
 
@@ -25,45 +25,39 @@ Each line in the ``.txt`` file represents a node in the graph. The format is:
 Heuristic values are space-separated, and ``->`` indicates the direction to connected nodes.
 
 ### 🔢 Sample .txt Entry
-``0.00123164 0.16744 0.560182 -> 0.0149622 0.44435 0.5078 0.065612 0.428811 0.677328``
+``0.00123164 0.16744 0.560182 -> 0.0149622 0.44435 0.5078 -> 0.065612 0.428811 0.677328``
 
+# Node A is connected to Node B and C
 
-```Node 0: (0.0012, 0.1674, 0.5601)
+```
+Node A: (0.00123164 0.16744 0.560182)
    |
-   |--> Node 1: (0.0150, 0.4443, 0.5078)
-   |      |
-   |      |--> Node 2: (0.0006, 0.4465, 0.1239)
-   |             |
-   |             |--> Node 3: (0.1123, 0.2839, 0.2780)
-   |                    |
-   |                    |--> Node 4: (0.0002, 0.4660, 0.0317)
-   |                           |
-   |                           |--> Node 5: (0.0010, 0.6099, 0.3229)
-   |                                  |
-   |                                  |--> Node 6: (0.3090, 0.4109, 0.3233)
+   |--> Node B: (0.0149622 0.44435 0.5078)
+   |
+   |--> Node C: (0.065612 0.428811 0.677328)
+
 ```
 
+The search process will evaluate different paths in this graph, based on the weights and the configured search mode (e.g., ``lowest cost`` or ``highest cost``), to find the optimal route from the current node to a target.
 
 
-### 🧠 Key Functions
 
-liberar_grafo: Frees the memory allocated for the graph structure.
+### 🔧 Commands
 
-searchA_pond: Receives a list of three values and stores them as heuristic weights.
+``read <filename>``
+Loads a graph from a ``.txt`` file. Each line in the file represents a node, its heuristic values, and its outgoing connections. This command initializes the internal graph structure used by the search.
 
-set_mode: Sets the search mode (< for lowest cost, > for highest cost).
+``List input`` 
+Triggers the ``A*`` search algorithm using the current ``graph``, ``weighting``, and ``search mode``. The resulting path is output through the outlets. This is done by sending a list of features (heuristic).
 
-searchA_read: Loads a graph structure from a .txt file, initializing nodes and edges.
+``restart``
+Resets the internal state of the search. This clears all previously visited nodes and accumulated costs, allowing the user to perform a new search without reloading the ``graph``.
 
-searchA_bang: Executes the A* search based on the configured heuristics, weights, and search mode, and outputs the results via Pd outlets.
+``mode``
+Sets the ``search mode``. Use ``<`` to search for the ``lowest cost`` path, or ``>`` to search for the ``highest cost path``. This allows the algorithm to be adapted for different creative or analytical goals.
 
-searchA_restart: Resets the search state, clearing costs and visited nodes.
-
-searchA_new: Constructor function for the object; initializes outlets, default values, and canvas context.
-
-searchA_destroy: Destructor function; frees memory and removes outlets.
-
-searchA_setup: Registers the object and its methods in the Pure Data environment.
+``weighting <w1> <w2> <w3>``
+Sets the relative importance (``weights``) of the three ``heuristic dimensions`` used by the ``A*`` algorithm. This lets you guide the search behavior based on the criteria you define.
 
 
 # Build
